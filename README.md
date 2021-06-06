@@ -1,7 +1,7 @@
 ### This is my application submission to Travaux.com
 
-git clone ... \
-cd .../infra
+git clone https://github.com/NFLorD/travaux_com \
+cd travaux_com/infra
 
 docker-compose build \
 docker-compose up -d
