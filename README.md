@@ -15,5 +15,6 @@ docker exec -ti infra_php_1 sh -c "php index.php"
 <br>
 
 ### Special note
-I added some more changes after submitting.
-You can find the original version here: https://github.com/NFLorD/travaux_com/releases/tag/v1
+I added some more changes after submitting. \
+You can find the original version here: \
+https://github.com/NFLorD/travaux_com/releases/tag/v1
