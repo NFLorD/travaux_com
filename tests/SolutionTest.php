@@ -2,7 +2,9 @@
 
 namespace App\Tests;
 
+use App\Exception\OverlapException;
 use App\Solution;
+use Exception;
 use OutOfBoundsException;
 use PHPUnit\Framework\TestCase;
 
@@ -21,11 +23,52 @@ class SolutionTest extends TestCase
     public function testThrowsOnOutOfBounds()
     {
         $input = $this->getDataset('throwsOnOutOfBounds');
-
         $thrown = false;
+
         try {
             Solution::solve($input);
         } catch (OutOfBoundsException $exception) {
+            $thrown = true;
+        }
+
+        $this->assertTrue($thrown);
+    }
+
+    public function testThrowsOnWrongPosition()
+    {
+        $input = $this->getDataset('throwsOnWrongPosition');
+        $thrown = false;
+
+        try {
+            Solution::solve($input);
+        } catch (OutOfBoundsException $exception) {
+            $thrown = true;
+        }
+
+        $this->assertTrue($thrown);
+    }
+
+    public function testThrowsOnOverlap()
+    {
+        # First case, a rover moves towards an already occupied cell
+        $input = $this->getDataset('throwsOnOverlap.first');
+        $thrown = false;
+
+        try {
+            Solution::solve($input, false);
+        } catch (OverlapException $exception) {
+            $thrown = true;
+        }
+
+        $this->assertTrue($thrown);
+
+        # Second case, a rover is positionned on an already occupied cell
+        $input = $this->getDataset('throwsOnOverlap.second');
+        $thrown = false;
+
+        try {
+            Solution::solve($input, false);
+        } catch (OverlapException $exception) {
             $thrown = true;
         }
 

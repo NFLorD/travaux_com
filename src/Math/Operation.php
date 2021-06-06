@@ -1,8 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Math;
 
-class Math
+class Operation
 {
     public static function superior(int $a, int $b): bool
     {
@@ -22,5 +22,10 @@ class Math
     public static function decrement(int $a): int
     {
         return --$a;
+    }
+
+    public static function inRange(int $x, int $lower, int $upper): bool
+    {
+        return $lower <= $x && $x <= $upper;
     }
 }
